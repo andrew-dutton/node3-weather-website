@@ -9,7 +9,8 @@ const forecast = (lat, long, callback) => {
     } else if(body.code === 400) {
       callback(body.error)
     } else {
-      callback(undefined, body.daily.data[0].summary + ' It is currently ' + body.currently.temperature + ' and there is a ' + body.currently.precipProbability + '% chance of rain.' )
+      console.log(body.daily.data[0])
+      callback(undefined, body.daily.data[0].summary + ' It is currently ' + body.currently.temperature + ' and there is a ' + body.currently.precipProbability + '% chance of rain. Today\'s UV Index: ' + body.currently.uvIndex)
     }
   })
 }
